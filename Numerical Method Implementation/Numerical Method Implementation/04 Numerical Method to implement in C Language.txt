@@ -1,0 +1,11 @@
+Write a program in C Language to implement :-
+01 Bisection formula
+02 Regula-falsi
+03 Newton Raphson
+04 Secant
+05 Gauss Elimination
+06 Gauss Seidal
+07 Newton Backward
+08 Newton Forward
+09 Newton divide difference formula
+10 Labrange's Interpolation
