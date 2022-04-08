@@ -1,0 +1,79 @@
+MongoDB commands for DataBases
+    View All DataBases
+    show dbs;
+
+    Create a new or switch DataBases
+    use DataBaseName
+
+    View current DataBase
+    db
+
+    Delete DataBase
+    db.dropDatabase()
+
+    switch DataBase
+    use DataBaseName
+
+MongoDB commands for Collections
+    show use DataBase collection
+    show collections
+
+    Create New collection in used DataBase
+    db.createcollection('collectionName')
+
+    drop the collection in used DataBase
+    db.collectionName.drop()
+
+MongoDB commands for Rows
+    insert row in used collection
+    db.collectionName.insert({
+        'name': 'Chiranjeev',
+        'lang': 'Python',
+        'experience': 4
+    })
+
+    insert many Rows
+    db.collectionName.insertMany([
+        {
+            'name': 'Chiranjeev',
+            'lang': 'Python',
+            'experience': 4
+        },
+        {
+            'name': 'Amit',
+            'lang': 'C++',
+            'experience': '5'
+        },
+        {
+            'name': 'Ayush',
+            'lang': 'Java',
+            'experience': '3'
+        }
+    ])
+
+    Show all Rows in a used Collections
+    db.collectionName.find()
+
+    Show all Rows in a used Collections in Formatted Order
+    db.collectionName.find().pretty()
+
+Search in a MongoDB DataBase
+db.collectionName.find({lang:Python})
+
+limit the number of rows in output
+db.collectionName.find().limit(2)
+
+Count the number of rows in output
+db.collectionName.find().count()
+
+Find the first Row matching in the object
+db.collectionName.findOne({name: 'sampleName'})
+
+update a row
+db.DataCollection.update({name: 'AmitRaj'},
+    {
+        'name': 'AmanJha',
+        'lang': 'JavaScript',
+        'year': '2'
+    }
+)

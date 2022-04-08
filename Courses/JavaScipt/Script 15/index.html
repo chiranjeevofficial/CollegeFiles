@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- Progarm to define and access objects -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 15</title>
+</head>
+<body>
+    <h1>Define and Accessing Objects</h1>
+    <p id="ID01"></p>
+    <p id="ID02"></p>
+    <p id="ID03"></p>
+    <p id="ID04"></p>
+    <script>
+        let app = 
+        {
+            appName: "JavaScript Learnings",
+            appCategory: "Education",
+            appDeveloper: "Chiranjeev Kashyap",
+            appRelease: 2022
+        }
+        // Here we have defined an object named "app"
+        // Objects declaration is just like variable declaration
+        // but it can hold more data than a variable
+        // Also we have defined 4 properties of that object
+        // appName, appCategory, appDeveloper, appRelease are properties of "app"
+        // Also we have assigned values to these properties
+        
+        document.getElementById("ID01").innerHTML = "App Name is: " + app.appName;
+        document.getElementById("ID02").innerHTML = "App Category is: " + app.appCategory;
+        document.getElementById("ID03").innerHTML = "App Developer is: " + app.appDeveloper;
+        document.getElementById("ID04").innerHTML = "App Release year is: " + app.appRelease;
+        // To access the values of the object we've to use dot operator and then the property name
+    </script>
+</body>
+</html>
