@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- Program to check if a value is number or not -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 18</title>
+</head>
+<body>
+    <h1>Checking NaN</h1>
+    <p id="ID1"></p>
+    <p id="ID2"></p>
+    <p id="ID3"></p>
+    <script>
+        const num1 = 10;
+        const num2 = "App";
+        const num3 = "10";
+        document.getElementById("ID1").innerHTML = "Is variable num1(10) a number: " + isNaN(num1);
+        // NaN stands for (Not a Number)
+        // So we are checking if the variable is either a number or not
+        // As 10 is a number so NaN will return false
+        document.getElementById("ID2").innerHTML = "Is variable num2(\"App\") a number: " + isNaN(num2);
+        // As "App" is a string, so NaN will return true
+        document.getElementById("ID3").innerHTML = "Is variable num3(\"10\") a number: " + isNaN(num3);
+        // Here we have passed a numeric value inside a string, so JavaScript will convert it
+        // into a numeric value so NaN return false
+    </script>
+</body>
+</html>
