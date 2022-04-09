@@ -8,6 +8,44 @@
     <title>JavaScript 17</title>
 </head>
 <body>
-    
+    <h1>String Funtions</h1>
+    <p id="para01"></p>
+    <p id="para02"></p>
+    <p id="para03"></p>
+    <p id="para04"></p>
+    <p id="para05"></p>
+    <p id="para06"></p>
+    <p id="para07"></p>
+    <p id="para08"></p>
+    <p id="para09"></p>
+    <p id="para10"></p>
+    <script>
+        let myString = "I am a developer, a JavaScript Developer";
+        // 
+        document.getElementById("para01").innerHTML = "The length of string is: " + myString.toUpperCase();
+        // toUpperCase function is used to convert the entire string to uppercase
+        document.getElementById("para02").innerHTML = "The length of string is: " + myString.toLowerCase();
+        // toLowerCase function is used to onvert the sntire string to lowercase
+        document.getElementById("para03").innerHTML = "The length of string is: " + myString.length();
+        // With the help of length property we can find the length of the string, it counts whitespaces as well
+        document.getElementById("para04").innerHTML = "The string is present at position: " + myString.search("developer");
+        // The search function is used to find a specific value within a string.
+        // if the value is not present in the string it will return -1
+        document.getElementById("para05").innerHTML = "The string is present at position: " + myString.indexOf("developer", 8);
+        // The indexOf function works just like search function but in this we can add a starting position for the search
+        document.getElementById("para06").innerHTML = "The string is present at position: " + myString.lastIndexOf("developer", 10);
+        // lastIndexOf funtion works just like indexOf function but it searches the string backwards,
+        // so it will begin it's searching from the right side of the string
+        document.getElementById("para07").innerHTML = "The replaced string is: " + myString.replace("JavaScript", "JS");
+        // replace funtion accepts two arguments, first is the value which needs to be replaced and second string value is the new value
+        document.getElementById("para08").innerHTML = "The sliced string is: " + myString.slice(5, 30);
+        // slice functions returns a sliced section from the string
+        // It accepts 2 arguments, a starting value and an ending value
+        document.getElementById("para09").innerHTML = "The substr string is: " + myString.substr(5, 10);
+        // substr function works just like slice but in the second argument it accepts the length of the string not the ending value
+        let myNewString = " JavaScript Learning ";
+        document.getElementById("para10").innerHTML = "The substr string is: " + myNewString.trim();
+        // trim function eliminates all extra whitespaces from both sides of the string`
+    </script>
 </body>
 </html>
