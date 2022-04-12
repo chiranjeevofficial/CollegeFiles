@@ -8,26 +8,26 @@
     <title>JavaScript 20</title>
 </head>
 <body>
-    <h1>Data Functions</h1>
-    <p id="Id1"></p>
-    <p id="Id2"></p>
-    <p id="Id3"></p>
-    <p id="Id4"></p>
-    <p id="Id5"></p>
-    <p id="Id6"></p>
-    <p id="Id7"></p>
-    <p id="Id8"></p>
-    <p id="Id9"></p>
+    <h1>Date Functions</h1>
+    <p id="ID1"></p>
+    <p id="ID2"></p>
+    <p id="ID3"></p>
+    <p id="ID4"></p>
+    <p id="ID5"></p>
+    <p id="ID6"></p>
+    <p id="ID7"></p>
+    <p id="ID8"></p>
+    <p id="ID9"></p>
     <script>
         const todayDate = new Date()
         document.getElementById("ID1").innerHTML = "Today's date is: " + todayDate;
         // We use Date function to get today's date and time
 
         const modifiedDate = new Date().toDateString()
-        document.getElementById("ID2").innerHTML = "Modified date is: " + modifiedDate
+        document.getElementById("ID2").innerHTML = "Modified date is: " + modifiedDate;
         // toDateString function will make the date more readble which is used in daily life
 
-        const myDate = new Date(2022, 04, 12, 15, 26, 56)
+        const myDate = new Date(2022, 04, 12, 15, 26, 45, 01)
         document.getElementById("ID3").innerHTML = "My date is: " + myDate;
         // We can also pass our own date to the date function and it will be presented in the same format
         // It accepts a maximum of 7 numbers and a minimum of 1 in the same order
