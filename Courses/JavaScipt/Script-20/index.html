@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- Program to use data functions -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 20</title>
+</head>
+<body>
+    <h1>Data Functions</h1>
+    <p id="Id1"></p>
+    <p id="Id2"></p>
+    <p id="Id3"></p>
+    <p id="Id4"></p>
+    <p id="Id5"></p>
+    <p id="Id6"></p>
+    <p id="Id7"></p>
+    <p id="Id8"></p>
+    <p id="Id9"></p>
+    <script>
+        const todayDate = new Date()
+        document.getElementById("ID1").innerHTML = "Today's date is: " + todayDate;
+        // We use Date function to get today's date and time
+
+        const modifiedDate = new Date().toDateString()
+        document.getElementById("ID2").innerHTML = "Modified date is: " + modifiedDate
+        // toDateString function will make the date more readble which is used in daily life
+
+        const myDate = new Date(2022, 04, 12, 15, 26, 56)
+        document.getElementById("ID3").innerHTML = "My date is: " + myDate;
+        // We can also pass our own date to the date function and it will be presented in the same format
+        // It accepts a maximum of 7 numbers and a minimum of 1 in the same order
+        // Order begins with year, month, date, hour, minutes, seconds and then millisecond
+        
+        document.getElementById("ID4").innerHTML = "Current year is: " + todayDate.getFullYear()
+        // getFullYear will return current year, this is useful when you wantto extract limited information from date
+        
+        document.getElementById("ID5").innerHTML = "Current Month is: " + todayDate.getMonth()
+        // getFullYear will return current month, this is useful when you wantto extract limited information from date
+        
+        document.getElementById("ID6").innerHTML = "Current Minutes is: " + todayDate.getMinutes()
+        // getFullYear will return current minutes, this is useful when you wantto extract limited information from date
+        
+        document.getElementById("ID7").innerHTML = "Current Seconds is: " + todayDate.getSeconds()
+        // getFullYear will return current seconds, this is useful when you wantto extract limited information from date
+        
+        document.getElementById("ID8").innerHTML = "Current Milliseconds is: " + todayDate.getMilliseconds()
+        // getFullYear will return current milliseconds, this is useful when you wantto extract limited information from date
+        
+        document.getElementById("ID9").innerHTML = "Current day of the week is: " + todayDate.getDay()
+        // getFullYear will return current day of the week, this is useful when you wantto extract limited information from date
+        </script>
+</body>
+</html>
