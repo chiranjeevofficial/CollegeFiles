@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- Program to perform error handling -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 27</title>
+</head>
+<body>
+    <h1>Error Handling</h1>
+    <p id="para1"></p>
+    <p id="para2"></p>
+    <script>
+        try
+        {
+            // While error handling our entire code is placed inside the try block
+            let valOne;
+            valOne > valTwo;
+            // Here we have declared a vvariable also,
+            // we have compared it with another variable which we haven't declared
+            // so this will generate an error and our code willnot work
+            // but with the help of try block we can catch that error and prevent the termination of code
+        }
+        catch (error)
+        {
+            // Here inside catch block "error" is an object which can be named according to the developer
+            // catch block will be executed whenever an error is generated inside the try block
+            document.getElementById("para1").innerHTML = "You have encountered an error: " + error.message;
+            // Here we have used "message" property to get the explanation on the error
+        }
+        finally
+        {
+            document.getElementById("para2").innerHTML = "Finally Block is executed";
+            // finally block will be executed regardless of the success of the code interpretation so,
+            // even if error is generated or not, finally block will run using finally block is optional
+        }
+    </script>
+</body>
+</html>
