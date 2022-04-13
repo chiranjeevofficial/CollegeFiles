@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- Program to use switch case -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 24</title>
+</head>
+<body>
+    <h1>Switch Case</h1>
+    <p id="para"></p>
+    <script>
+    const week = "Tuesday";
+    switch (week)
+    {
+        // Here inside switch the passed expression is compared with all casescreated below
+        // If the value of the expression matches with the case, that loop will be executed
+        case "Monday":
+            document.getElementById("para").innerHTML = "Today is Monday";
+            break;
+            // When ending a case "break" keyword must be used, otherwise other cases willalso be executed
+            // Break as the name suggests it breaks us out of the switch case
+        case "Tuesday":
+            document.getElementById("para").innerHTML = "Today is Tuesday";
+            break;
+        case "Wednesday":
+            document.getElementById("para").innerHTML = "Today is Wednesday";
+            break;
+        case "Thursday":
+            document.getElementById("para").innerHTML = "Today is Thursday";
+            break;
+        case "Friday":
+            document.getElementById("para").innerHTML = "Today is Friday";
+            break;
+        case "Saturday":
+            document.getElementById("para").innerHTML = "Today is Saturday";
+            break;
+        case "Sunday":
+            document.getElementById("para").innerHTML = "Today is Sunday";
+            break;
+        default:
+            document.getElementById("para").innerHTML = "Sorry! An error occurred. Check input";
+            // All switch blocks must and with a default casse, which will be executed when, the value of expression in not met with any case.
+    }
+    </script>
+</body>
+</html>
