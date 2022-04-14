@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- Program to show use of JavaScript Classes -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 29</title>
+</head>
+<body>
+	<h1>Classes</h1>
+	<p id="para"></p>
+	<script>
+		class myNewClass
+        {
+			// We use a keyword 'class' and then new class name for defining a class
+			// JS Classes were introduced in ES6
+			// Classes are used as templates for our JS objects
+			constructor(appName, appDev)
+            {
+				this.appName = appName;
+				this.appDev = appDev;
+			}
+			// Every class must have a constructor function defined inside it
+			// This class has 2 properties of 'appName' and 'appDev'
+			appInfo()
+            {
+				// Here we have defined a new function inside this class
+				// This function will run the following statements
+				let appInformation = `App is ${this.appName} and developed by ${this.appDev}`;
+				document.getElementById("para").innerHTML += appInformation + "<br>";
+			}
+		}
+		const js = new myNewClass("JavaScript For Beginners", "JavaScript");
+		const html = new myNewClass("HTML For Beginners", "HTML");
+		const css = new myNewClass("CSS For Beginners", "CSS");
+		const sql = new myNewClass("SQL For Beginners", "SQL");
+		// Here we have defined 4 objects
+		// The constructor method will be called automatically whenever a new object is created in that class
+		js.appInfo()
+		html.appInfo()
+		css.appInfo()
+		sql.appInfo()
+	</script> 
+
+</body>
+</html>
