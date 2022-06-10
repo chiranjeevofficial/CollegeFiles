@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!-- Program to change HTML String on button Click -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 04</title>
+</head>
+<body>
+    <h1 id="head01">This is Original Heading</h1>
+    <button type="button" onclick="changeHeader()">Click Me</button>
+    <script>
+        // To create a function in JS, we use function keyword, then function name and parenthesis
+        // and then wrap the entire body of function inside curly brackets also known as a code blocks
+        function changeHeader()
+        {
+            document.getElementById("head01").innerHTML = "Modified Heading made by JavaScript";
+            // Notice this time we have not ended this statement with a semicolon,
+            // because semicolons are optional in JavaScript
+        }
+    </script>
+</body>
+</html>

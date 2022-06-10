@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- Program to use number functions -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 19</title>
+</head>
+<body>
+    <h1>Number Functions</h1>
+    <p id="ID1"></p>
+    <p id="ID2"></p>
+    <p id="ID3"></p>
+    <p id="ID4"></p>
+    <p id="ID5"></p>
+    <script>
+        const num1 = 1234.5678;
+        document.getElementById("ID1").innerHTML = "The value of num1 specific to 2 digits is: " + num1.toFixed(2);
+        // toFixed function will round-Off the value of decimals withh the number passed inside it
+        // Here the decimal value has been round-off to two digits
+        document.getElementById("ID2").innerHTML = "The value of num1 after making it exponent is: " + num1.toExponential(3);
+        // Here we have used toExponential function to convert our value in the form of an exponent which is round-off to three digits
+        document.getElementById("ID3").innerHTML = "The value of num1 after making it precise is: " + num1.toPrecision(5);
+        // Here we have used toPrecision function to make our value precise after 5 digits by rounding-off
+        const num2 = "1234.5678 number"
+        document.getElementById("ID4").innerHTML = "The integer value of num1 is: " + parseInt(num2);
+        // parseInt is used to extract the whole number from the string variable
+        document.getElementById("ID5").innerHTML = "The floating value of num1 is: " + parseFloat(num2);
+        // parseFloat is used to extract the entire number value from the string variable
+    </script>
+</body>
+</html>

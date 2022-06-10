@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- Program to perform mathematical & arithmetical operations -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 14</title>
+</head>
+<body>
+    <h1>mathematical & Arithmetical Operations</h1>
+    <p id="varID01"></p>
+    <p id="varID02"></p>
+    <p id="varID03"></p>
+    <p id="varID04"></p>
+    <p id="varID05"></p>
+    <p id="varID06"></p>
+    <p id="varID07"></p>
+    <p id="varID08"></p>
+    <p id="varID09"></p>
+    <p id="varID10"></p>
+    <p id="varID11"></p>
+    <p id="varID12"></p>
+    <script>
+        var value = myOperations(20, 17);
+        // Here we have passed two values to the myOperations functions,
+        // which will be used to perform certain operations
+        function myOperations(value1, value2)
+        {
+            document.getElementById("varID01").innerHTML = "The addition is: " + (value1 + value2);
+            // The addition of both values is done using + operator
+            
+            document.getElementById("varID02").innerHTML = "The subtraction is: " + (value1 - value2);
+            // The subtraction of both values is done using - operator
+            
+            document.getElementById("varID03").innerHTML = "The multiplication is: " + (value1 * value2);
+            // The multiplication of both values is done using * operator
+            
+            document.getElementById("varID04").innerHTML = "The division is: " + (value1 / value2);
+            // The division of both values is done using / operator
+            
+            document.getElementById("varID05").innerHTML = "The remainder after division is: " + (value1 % value2);
+            // The remainder of both values is done using % operator
+            
+            document.getElementById("varID06").innerHTML = "The Value01 is greater than Value02: " + (value1 > value2);
+            // The greater of both values is done using > operator
+            
+            document.getElementById("varID07").innerHTML = "The Value02 is smaller than value02: " + (value1 < value2);
+            // The smaller of both values is done using < operator
+            
+            document.getElementById("varID08").innerHTML = "The increment of both value by 1: " + (++value1) + " and " + (++value2);
+            // The increment of both values is done using + operator
+            
+            // Keep in mind that when ++ increment is placed before the value it is called as pre-increment operator
+            // and when placed after the value it is known as post increment operator
+            // A pre-increment operator will increase the value first and then will pass the value
+            // A pr-increment operator will increase the value first and then will pass the value
+            // whereas, a post-increment operator will pass the value first and then increase it
+            
+            document.getElementById("varID09").innerHTML = "The decrement of both values by 1:" + (--value1) + " and " + (--value2);
+            // The decrement of both value is done using -- operator
+            
+            document.getElementById("varID10").innerHTML = "Are both values equal? " + (value1 === value2);
+            // To check whether both values are exactly equal we use triple equals to sign
+            
+            document.getElementById("varID11").innerHTML = "Are both values unequal? " + (value1 !== value2)
+            // To check whether both values are exactly unequal we use one exclamation and double equals to sign
+            
+            document.getElementById("varID12").innerHTML = "The power of Value02 raised to Value01 is: " + (value1 ** value2)
+            // Exponential (**) operator will take the first operand and pass it as the power of the second operator
+        }
+    </script>
+</body>
+</html>

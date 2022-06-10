@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate LCM</title>
+</head>
+<body>
+    <h2 id="id1"></h2>
+    <h2 id="result"></h2>
+    <script>
+        let a=0;
+        let b=0;
+        let l=0;
+        a=prompt("Enter first numbers", "Enter here");
+        b=prompt("Enter second numbers", "Enter here");
+        document.getElementById("id1").innerHTML = "Entered value is: " + a + ", " + b;
+        for(l=1;l<=a*b;l++)
+        {
+            if(l%a==0 && l%b==0)
+                break;
+        }
+        document.getElementById("result").innerHTML = "LCM of " + a + " & " + b + " is: " + l;
+    </script>
+</body>
+</html>
