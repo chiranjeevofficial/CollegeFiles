@@ -1,5 +1,0 @@
-"""6. What are the three keywords, which are used as data?"""
-"""There are 3 Keywords we are use as data in Python"""
-"""1. True"""
-"""2. False"""
-"""3. None"""
