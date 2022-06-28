@@ -4,7 +4,7 @@
  - Miss Anjali Dhiman
  - Miss Pooja Negi
 
-### RDBMS Assignment - 01 Questions
+### RDBMS Assignment 01 | Questions
  1.	Explain transaction with its lifecycle ?
  2.	Explain deadlock with detection and avoidance ?
  3.	What are the ACID properties ?
@@ -26,3 +26,14 @@
  11. What is digital Audio? Explain about digital audio formats.
  12. What do you mean by hypertext? What are elements of hypertext? How hypertext is different from hypermedia?
  13. What do you mean by macromedia products? Explain its some basic drawing techniques?
+
+ ### RDBMS Assignment 02 | Questions
+ 1. Define Data Dictionary?
+ 2. Define each keys with example: 
+    1. Primary key
+    2. Foreign key 
+    3. Candidate key
+    4. Super key
+    5. Refrential key
+ 3. Explain Types of Client Server Architecture.
+ 4. Define Distributed Database with both Fragmentation (Horizontal & Vertical)
