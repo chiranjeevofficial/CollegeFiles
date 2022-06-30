@@ -59,8 +59,10 @@
     > Client-Server Architecture is a distributed system architecture where the workload of client server are separated. 
     <img src="Images/CSA.png" alt="CSA_Image" title="Client Server Architecture">
     - 1 tier architecture - 1 Tier Architecture in DBMS is the simplest architecture of Database in which the client, server, and Database all reside on the same machine. A simple one tier architecture example would be anytime you install a Database in your system and access it to practice SQL queries.
+     
      <img src="Images/1-tier.png">
 
+    
     - 2 tier architecture - In a two-tier architecture, the client is on the first tier. The database server and web application server reside on the same server machine, which is the second tier. This second tier serves the data and executes the business logic for the web application.
     <img src="Images/2-tier.png">
 
