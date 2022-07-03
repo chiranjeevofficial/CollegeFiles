@@ -32,3 +32,20 @@
  2. Define each keys with example: 
  3. Explain Types of Client Server Architecture.
  4. Define Distributed Database with both Fragmentation (Horizontal & Vertical)
+
+ ### RDBMS Assignment 03 | Questions
+ 1. Define Database object?
+ 2. Explain Data modeling with its types?
+ 3. Define all forms of Normalization with example table?
+
+ ### Operating System Assignment 01 | Questions
+ 1. What is process control block? 
+ 2. What is an OS? Need of an operating system. Also discuss major functions of OS.
+ 3. Explain types of operating system. 
+ 4. Discuss process state diagram.
+
+ ### MIS Assignment 01 | Questions
+ 1. What is information system?
+ 2. Discuss various types of information system.
+ 3. Explain in detail about open and closed system.
+ 4. Draw an ER diagram of library management system.
