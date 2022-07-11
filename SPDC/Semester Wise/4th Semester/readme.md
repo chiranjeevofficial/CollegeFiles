@@ -1,51 +1,65 @@
-# 4th Semester Assignments Questions
-## Given By - 
- - Gokul Singh Bisht
- - Miss Anjali Dhiman
- - Miss Pooja Negi
+## Syllabus
 
-### RDBMS Assignment 01 | Questions
- 1.	Explain transaction with its lifecycle ?
- 2.	Explain deadlock with detection and avoidance ?
- 3.	What are the ACID properties ?
- 4.	Define schedule with its type ?
- 5.	Explain testing of serializability ?
- 6.	Define each failure classification ?
+---
 
-### Multimedia Assignment Questions
- 1.	What is multimedia? Describe components of multimedia?
- 2.	What are software and hardware requirements for multimedia computer? Discuss multimedia applications in business.
- 3.	Explain the evolution of Multimedia and its objects.
- 4.	Explain the scope of multimedia in business and work.
- 5.	What is meant by multimedia and hypermedia?
- 6.	What is sound card? Explain its principle and working.
- 7.	What is digital video? Explain the use of digital video in developing multimedia application.
- 8.	What is image capturing authoring tools/software? Explain the features of authoring tools/software.
- 9.	Explain the process involved in planning and design of any multimedia application.
- 10. What do you mean by MIDI? Explain in detail.
- 11. What is digital Audio? Explain about digital audio formats.
- 12. What do you mean by hypertext? What are elements of hypertext? How hypertext is different from hypermedia?
- 13. What do you mean by macromedia products? Explain its some basic drawing techniques?
+### **BS401: Operating system**
 
- ### RDBMS Assignment 02 | Questions
- 1. Define Data Dictionary?
- 2. Define each keys with example: 
- 3. Explain Types of Client Server Architecture.
- 4. Define Distributed Database with both Fragmentation (Horizontal & Vertical)
+**Introduction:** Definition, Design Goals, Evolution; Concept of User, job and Resources; Batch processing, Multi-programming, Time sharing; Structure and Functions of
+Operating System.
 
- ### RDBMS Assignment 03 | Questions
- 1. Define Database object?
- 2. Explain Data modeling with its types?
- 3. Define all forms of Normalization with example table?
+**Process Management:** Process states, State Transitions, Process Control Structure,
+Context Switching, Process Scheduling, Threads.
 
- ### Operating System Assignment 01 | Questions
- 1. What is process control block? 
- 2. What is an OS? Need of an operating system. Also discuss major functions of OS.
- 3. Explain types of operating system. 
- 4. Discuss process state diagram.
+**Memory Management:** Address Binding, Dynamic Loading and Linking Concepts, Logical and Physical Addresses, Contiguous Allocation, Fragmentation, Paging, Segmentation, Combined Systems, Virtual Memory, Demand Paging, Page fault, Page replacement algorithms, Global Vs Local Allocation, Thrashing, Working Set Model, Paging.
 
- ### MIS Assignment 01 | Questions
- 1. What is information system?
- 2. Discuss various types of information system.
- 3. Explain in detail about open and closed system.
- 4. Draw an ER diagram of library management system.
+**Concurrent Processes:** Process Interaction, Shared Data and Critical Section, Mutual Exclusion, Busy form of waiting, Lock and unlock primitives, Synchronization, Classical Problems of Synchronization, Semaphores, Monitors, Conditional Critical Regions, System Deadlock, Wait for Graph, Deadlock Handling Techniques: Prevention, Avoidance, Detection and Recovery.
+
+**File and Secondary Storage Management:** File Attributes, File Types, File Access Methods, Directory Structure, File System Organization and Mounting, Allocation Methods, Free Space management; Disk Structure, Logical and Physical View, Disk Head Scheduling, Formatting, Swap Management. Protection & Security.
+
+---
+
+### **BS402 : Advance RDBMS**
+
+**Data Processing Systems. Transaction Processing and Concepts:** Transaction system, Testing of seralizability, Seralizability of schedules, conflict and view seralizable schedule, recoverability, Recovery form transaction failures, deadlock handling.
+
+File processing system. File Management system. Components of RDBMS. Database Architecture.
+
+Object Oriented Databases. Distributed Databases. Client/server database. Data Dictionary. Database models. Normalization. The Database Administration. Database Manager responsibilities.
+
+Monitoring Database performance. Database Machine overview.
+Designing RDBMS for organization. Object modeling. Perspectives of Data Modelling. Evolving the logical model. Transformation from Logical to Phical model.
+
+Concurrency Control Techniques: Concurrency control, locking Techniques for concurrency control. CODD’s 12 rules for a fully relational DBMS.
+
+Data Integrity. Redundancy. Primary and Foreign keys.
+
+Object database management. Database design and choosing the database server. SQL and MySql. Database access and ODBC.
+
+Middleware: Kinds of middleware. Sockets-talking to database, virtual database engine defined, web based middleware, Microsoft JET engine.
+
+Database security and Recovery. Data Mining and Warehouse.
+
+---
+
+### **BS403 : Management Information System**
+Fundamentals of Information Systems, Systems approach to problem solving,
+Developing information system solutions, Levels of MIS (Top, Middle, Lower).
+
+Corporate Databases & Database Management, Data Organization, Data models, Data Security & Information quality.
+
+Transaction Processing Systems, Executive Information Systems, Decision Support Systems, Expert Systems, Information Systems in Marketing, Manufacturing, HRM, Accounting and Finance.
+
+Information Resource Management, Planning Implementing & Controlling Information Systems, Computer Crime, Ethics & Society.
+
+---
+
+### **BS404 : Multimedia Technology and Application**
+Evolution of Multimedia and its objects, Scope of multimedia in business & work, production and planning of Multimedia applications. Multimedia hardware, Memory of Storage Devices, Communication Devices, Multimedia Software, Presentation and object generation tools, Video, sound, Image capturing Authoring Tools, Card & Page Based Authoring Tools.
+
+Production and Planning of Multimedia building blocks, Text, sound (MIDI), Digital Audio, Audio File Formats, MIDI under Windows environment, Audio & Video Capture.
+
+Macromedia products, Basic drawing techniques, Advance animation techniques, Creating Multi layer combining interactivity and multiple scenes, Creating transparency effects using text in Flash, Flash animation.
+
+Digital Audio Concepts, Sampling variables, Loss Less compression, of sound, Lossy compression & Silence compression.
+
+Multimedia monitor bitmaps, Vector drawing , Lossy graphic compression, Image file formatic animations, Image standards, JPEG compression, Zig Zag coding. Video representation, colors, video compression, MPEG standards, MHEG standard, recent development in multimedia. Multimedia Application Planning, Costing, Proposal preparation, and Financing-Case study of a typical industry.
