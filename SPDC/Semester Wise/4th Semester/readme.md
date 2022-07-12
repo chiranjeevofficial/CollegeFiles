@@ -4,7 +4,7 @@
 
 ### **BS401: Operating system**
 
-**Introduction:** Definition, Design Goals, Evolution; Concept of User, job and Resources; Batch processing, Multi-programming, Time sharing; Structure and Functions of
+**Introduction:** ~~Definition, Design Goals,~~ Evolution; Concept of User, job and Resources; Batch processing, Multi-programming, Time sharing; Structure and Functions of
 Operating System.
 
 **Process Management:** Process states, State Transitions, Process Control Structure,
