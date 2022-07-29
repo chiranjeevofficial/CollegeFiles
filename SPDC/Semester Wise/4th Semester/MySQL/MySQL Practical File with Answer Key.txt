@@ -1,0 +1,649 @@
+>>> SQL Exercise 01
+Practical 01: Create following table using SQL statements.
++----------------------------------------+
+| Client Table                           |
++------------+-------------+-------------+
+| Field Name | Data Type   | Attributes  |
++------------+-------------+-------------+
+| ClientNo   | char(6)     | Primary Key |
+| Name       | varchar(20) | Not Null    |
+| City       | varchar(50) | Not Null    |
+| Pin        | int         |             |
+| Mobile     | char(10)    |             |
++------------+-------------+-------------+
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> create table Client(
+    -> ClientNo varchar(6) primary key,
+    -> Name varchar(20) not null,
+    -> City varchar(50) not null,
+    -> Pin int,
+    -> Mobile char(10)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+------------------------------------------------------------------------------------------
+
+Practical 02: Insert & display following data in Client table (made in practical 01)
+              using SQL statements
++--------------------------------------------------------------+
+| Client Table                                                 |
++----------+-------------------+---------+--------+------------+
+| ClientNo | Name              | City    | Pin    | Mobile     |
++----------+-------------------+---------+--------+------------+
+| C00001   | Ivan Bayross      | Bombay  | 400054 | 3456212343 |
+| C00002   | Vandana Saitwal   | Madras  | 780001 | 8976532322 |
+| C00003   | Pramada Jaguste   | Bombay  | 400007 | 9090898765 |
+| C00004   | Ravi Shreedharan  | Delhi   | 110020 | 8727121232 |
+| C00005   | Rukmani           | Kolkata | 340003 | 2312376543 |
+| C00006   | Pradeep Singhania | Jaipur  | 130102 | 1222132333 |
+| C00007   | Geoge Paul        | Kolkata | 340010 | 3323211232 |
+| C00008   | D Ravichandran    | Bombay  | 400014 | 2212387896 |
++----------+-------------------+---------+--------+------------+
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> insert into client values
+    -> ('C00001', 'Ivan Bayross', 'Bombay', 400054, '3456212343'),
+    -> ('C00002', 'Vandana Saitwal', 'Madras', 780001, '8976532322'),
+    -> ('C00003', 'Pramada Jaguste', 'Bombay', 400007, '9090898765'),
+    -> ('C00004', 'Ravi Shreedharan', 'Delhi', 110020, '8727121232'),
+    -> ('C00005', 'Rukmani', 'Kolkata', 340003, '2312376543'),
+    -> ('C00006', 'Pradeep Singhania', 'Jaipur', 130102, '1222132333'),
+    -> ('C00007', 'Geoge Paul', 'Kolkata', 340010, '3323211232'),
+    -> ('C00008', 'D Ravichandran', 'Bombay', 400014, '2212387896')
+    -> ;
+Query OK, 8 rows affected (0.02 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+mysql> select * from client;
++----------+-------------------+---------+--------+------------+
+| ClientNo | Name              | City    | Pin    | Mobile     |
++----------+-------------------+---------+--------+------------+
+| C00001   | Ivan Bayross      | Bombay  | 400054 | 3456212343 |
+| C00002   | Vandana Saitwal   | Madras  | 780001 | 8976532322 |
+| C00003   | Pramada Jaguste   | Bombay  | 400007 | 9090898765 |
+| C00004   | Ravi Shreedharan  | Delhi   | 110020 | 8727121232 |
+| C00005   | Rukmani           | Kolkata | 340003 | 2312376543 |
+| C00006   | Pradeep Singhania | Jaipur  | 130102 | 1222132333 |
+| C00007   | Geoge Paul        | Kolkata | 340010 | 3323211232 |
+| C00008   | D Ravichandran    | Bombay  | 400014 | 2212387896 |
++----------+-------------------+---------+--------+------------+
+8 rows in set (0.00 sec)
+------------------------------------------------------------------------------------------
+
+Practical 03: Display the name of those clients whose name contains 'van'(refer table
+              'Client' of Practical 02)
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> select * from client where name like '%van%';
++----------+-----------------+--------+--------+------------+
+| ClientNo | Name            | City   | Pin    | Mobile     |
++----------+-----------------+--------+--------+------------+
+| C00001   | Ivan Bayross    | Bombay | 400054 | 3456212343 |
+| C00002   | Vandana Saitwal | Madras | 780001 | 8976532322 |
++----------+-----------------+--------+--------+------------+
+2 rows in set (0.00 sec)
+------------------------------------------------------------------------------------------
+
+Practical 04: List records of all clients who are not from Bombay. (refer table
+              'Client' of Practical 02)
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> select * from client where not city='Bombay';
++----------+-------------------+---------+--------+------------+
+| ClientNo | Name              | City    | Pin    | Mobile     |
++----------+-------------------+---------+--------+------------+
+| C00002   | Vandana Saitwal   | Madras  | 780001 | 8976532322 |
+| C00004   | Ravi Shreedharan  | Delhi   | 110020 | 8727121232 |
+| C00005   | Rukmani           | Kolkata | 340003 | 2312376543 |
+| C00006   | Pradeep Singhania | Jaipur  | 130102 | 1222132333 |
+| C00007   | Geoge Paul        | Kolkata | 340010 | 3323211232 |
++----------+-------------------+---------+--------+------------+
+5 rows in set (0.00 sec)
+------------------------------------------------------------------------------------------
+
+Practical 05: Display different cities. (refer table 'Client' of Practical 02)
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> select distinct city from client;
++---------+
+| city    |
++---------+
+| Bombay  |
+| Madras  |
+| Delhi   |
+| Kolkata |
+| Jaipur  |
++---------+
+5 rows in set (0.00 sec)
+------------------------------------------------------------------------------------------
+
+Practical 06: Create a table 'Club' with proper integrity contraints and insert data as
+              given below:
++-------------------------------------------------------------------------+
+| Club                                                                    |
++----------+------------+-----+-------------+------------+-------+--------+
+| Coach_ID | Coach_Name | Age | Sport       | DateOfApp  | Pay   | Gender |
++----------+------------+-----+-------------+------------+-------+--------+
+| 1        | Karan      | 35  | Karate      | 2019-03-27 | 10000 | M      |
+| 2        | Ravina     | 35  | Karate      | 2020-01-20 | 12000 | F      |
+| 3        | Kamal      | 34  | Squash      | 2020-02-19 | 20000 | M      |
+| 4        | Tarun      | 33  | Basket Ball | 2020-01-01 | 15000 | M      |
+| 5        | Sumera     | 36  | Swimming    | 2020-01-12 | 7500  | M      |
+| 6        | Anjani     | 37  | Swimming    | 2020-02-24 | 8000  | F      |
+| 7        | Shamima    | 37  | Squash      | 2020-02-20 | 22000 | F      |
+| 8        | Soumya     | 30  | Karate      | 2020-02-22 | 11000 | F      |
++----------+------------+-----+-------------+------------+-------+--------+
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> create table club(
+    -> Coach_ID int primary key auto_increment,
+    -> Coach_Name char(50) not null,
+    -> Age int not null,
+    -> Sport char(20) not null,
+    -> DateOfApp date not null,
+    -> Pay int not null,
+    -> Gender char not null
+    -> );
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> insert into club values
+    -> (1,'Karan',35,'Karate','2019-03-27',10000,'M'),
+    -> (2, 'Ravina',35,'Karate','2020-01-20',12000,'F'),
+    -> (3,'Kamal',34,'Squash','2020-02-19',20000,'M'),
+    -> (4,'Tarun',33,'Basket Ball','2020-01-01',15000,'M'),
+    -> (5,'Sumera',36,'Swimming','2020-01-12',7500,'M'),
+    -> (6,'Anjani',37,'Swimming','2020-02-24',8000,'F'),
+    -> (7,'Shamima',37,'Squash','2020-02-20',22000,'F'),
+    -> (8,'Soumya',30,'Karate','2020-02-22',11000,'F');
+Query OK, 8 rows affected (0.01 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+mysql> select * from client;
++----------+-------------------+---------+--------+------------+
+| ClientNo | Name              | City    | Pin    | Mobile     |
++----------+-------------------+---------+--------+------------+
+| C00001   | Ivan Bayross      | Bombay  | 400054 | 3456212343 |
+| C00002   | Vandana Saitwal   | Madras  | 780001 | 8976532322 |
+| C00003   | Pramada Jaguste   | Bombay  | 400007 | 9090898765 |
+| C00004   | Ravi Shreedharan  | Delhi   | 110020 | 8727121232 |
+| C00005   | Rukmani           | Kolkata | 340003 | 2312376543 |
+| C00006   | Pradeep Singhania | Jaipur  | 130102 | 1222132333 |
+| C00007   | Geoge Paul        | Kolkata | 340010 | 3323211232 |
+| C00008   | D Ravichandran    | Bombay  | 400014 | 2212387896 |
++----------+-------------------+---------+--------+------------+
+8 rows in set (0.00 sec)
+------------------------------------------------------------------------------------------
+
+Practical 07: Display information about coaches whose name start with K or pay is at
+              least 1500 or both. (refer table 'Club' of Practical 06)
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> select * from club where Coach_Name like 'K%' or Pay >=1500;
++----------+------------+-----+-------------+------------+-------+--------+
+| Coach_ID | Coach_Name | Age | Sport       | DateOfApp  | Pay   | Gender |
++----------+------------+-----+-------------+------------+-------+--------+
+|        1 | Karan      |  35 | Karate      | 2019-03-27 | 10000 | M      |
+|        2 | Ravina     |  35 | Karate      | 2020-01-20 | 12000 | F      |
+|        3 | Kamal      |  34 | Squash      | 2020-02-19 | 20000 | M      |
+|        4 | Tarun      |  33 | Basket Ball | 2020-01-01 | 15000 | M      |
+|        5 | Sumera     |  36 | Swimming    | 2020-01-12 |  7500 | M      |
+|        6 | Anjani     |  37 | Swimming    | 2020-02-24 |  8000 | F      |
+|        7 | Shamima    |  37 | Squash      | 2020-02-20 | 22000 | F      |
+|        8 | Soumya     |  30 | Karate      | 2020-02-22 | 11000 | F      |
++----------+------------+-----+-------------+------------+-------+--------+
+8 rows in set (0.00 sec)
+------------------------------------------------------------------------------------------
+
+Practical 08: Write a query to display report showing Coach_Name, Pay, Age and Bonus
+              (15% of Pay) for all coaches. (refer table 'Club' of Practical 06)
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> select Coach_Name, Pay, Age, (Pay*15/100) as Bonus from club;
++------------+-------+-----+-----------+
+| Coach_Name | Pay   | Age | Bonus     |
++------------+-------+-----+-----------+
+| Karan      | 10000 |  35 | 1500.0000 |
+| Ravina     | 12000 |  35 | 1800.0000 |
+| Kamal      | 20000 |  34 | 3000.0000 |
+| Tarun      | 15000 |  33 | 2250.0000 |
+| Sumera     |  7500 |  36 | 1125.0000 |
+| Anjani     |  8000 |  37 | 1200.0000 |
+| Shamima    | 22000 |  37 | 3300.0000 |
+| Soumya     | 11000 |  30 | 1650.0000 |
++------------+-------+-----+-----------+
+8 rows in set (0.00 sec)
+------------------------------------------------------------------------------------------
+
+Practical 09: Display information about all male coaches. (refer table 'Club' of
+              Practical 06)
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> select * from Club where Gender='M';
++----------+------------+-----+-------------+------------+-------+--------+
+| Coach_ID | Coach_Name | Age | Sport       | DateOfApp  | Pay   | Gender |
++----------+------------+-----+-------------+------------+-------+--------+
+|        1 | Karan      |  35 | Karate      | 2019-03-27 | 10000 | M      |
+|        3 | Kamal      |  34 | Squash      | 2020-02-19 | 20000 | M      |
+|        4 | Tarun      |  33 | Basket Ball | 2020-01-01 | 15000 | M      |
+|        5 | Sumera     |  36 | Swimming    | 2020-01-12 |  7500 | M      |
++----------+------------+-----+-------------+------------+-------+--------+
+4 rows in set (0.00 sec)
+------------------------------------------------------------------------------------------
+
+Practical 10: Write a command to display the output as.(refer table 'Club' of Practical 6)
++--------+
+| Karan  |
+| Tarun  |
+| Anjani |
+| Soumya |
++--------+
+----------------------------------- MySQL Command Line -----------------------------------
+mysql>
+select coach_name from club where coach_id=1 or coach_id=2 or coach_id=6 or coach_id=8;
++------------+
+| coach_name |
++------------+
+| Karan      |
+| Ravina     |
+| Anjani     |
+| Soumya     |
++------------+
+4 rows in set (0.00 sec)
+------------------------------------------------------------------------------------------
+
+Practical 11: Consider the following table Movie and display all movies which fall in the
+              category of Comedy or Action.
++-------------------------------------------------------------------------------------+
+| Movie                                                                               |
++---------+---------------+-----------+-------------+-----------------+---------------+
+| MovieID | MovieName     | category  | ReleaseDate | ProductionCost  | BusinessCost  |
++---------+---------------+-----------+-------------+-----------------+---------------+
+| 001     | Hindi_Movie   | Musical   | 2018-04-23  | 124500          | 130000        |
+| 002     | Tamil_Movie   | Action    | 2016-05-17  | 112000          | 118000        |
+| 003     | ENglish_Movie | Horror    | 2017-08-06  | 245000          | 360000        |
+| 004     | Bengali_Movie | Adventure | 2017-01-04  | 72000           | 100000        |
+| 005     | Telugu_Movie  | Action    | -           | 100000          | -             |
+| 006     | Punjabi_Movie | Comedy    | -           | 30500           | -             |
++---------+---------------+-----------+-------------+-----------------+---------------+
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> create table movie(
+    -> MovieID int primary key,
+    -> MovieName varchar(50),
+    -> category varchar(20),
+    -> ReleaseDate date,
+    -> ProductionCost int,
+    -> BusinessCost int
+    -> );
+Query OK, 0 rows affected (0.23 sec)
+mysql> insert into Movie values
+    -> ('001', 'Hindi_Movie', 'Musical ', '2018-04-23', 124500, 130000),
+    -> ('002', 'Tamil_Movie', 'Action', '2016-05-17', 112000, 118000),
+    -> ('003', 'ENglish_Movie', 'Horror', '2017-08-06', 245000, 360000),
+    -> ('004', 'Bengali_Movie', 'Adventure', '2017-01-04', 72000 , 100000),
+    -> ('005', 'Telugu_Movie', 'Action', null, 100000, null),
+    -> ('006', 'Punjabi_Movie', 'Comedy', null, 30500, null);
+Query OK, 6 rows affected (0.01 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+mysql> select * from movie;
++---------+---------------+-----------+-------------+----------------+--------------+
+| MovieID | MovieName     | category  | ReleaseDate | ProductionCost | BusinessCost |
++---------+---------------+-----------+-------------+----------------+--------------+
+|       1 | Hindi_Movie   | Musical   | 2018-04-23  |         124500 |       130000 |
+|       2 | Tamil_Movie   | Action    | 2016-05-17  |         112000 |       118000 |
+|       3 | ENglish_Movie | Horror    | 2017-08-06  |         245000 |       360000 |
+|       4 | Bengali_Movie | Adventure | 2017-01-04  |          72000 |       100000 |
+|       5 | Telugu_Movie  | Action    | NULL        |         100000 |         NULL |
+|       6 | Punjabi_Movie | Comedy    | NULL        |          30500 |         NULL |
++---------+---------------+-----------+-------------+----------------+--------------+
+6 rows in set (0.00 sec)
+mysql> select * from movie where category='Action' or category='Comedy';
++---------+---------------+----------+-------------+----------------+--------------+
+| MovieID | MovieName     | category | ReleaseDate | ProductionCost | BusinessCost |
++---------+---------------+----------+-------------+----------------+--------------+
+|       2 | Tamil_Movie   | Action   | 2016-05-17  |         112000 |       118000 |
+|       5 | Telugu_Movie  | Action   | NULL        |         100000 |         NULL |
+|       6 | Punjabi_Movie | Comedy   | NULL        |          30500 |         NULL |
++---------+---------------+----------+-------------+----------------+--------------+
+3 rows in set (0.00 sec)
+------------------------------------------------------------------------------------------
+
+Practical 12: Consider the table Movie of practical 11 and display all movies which have
+              not been released yet.
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> select * from movie where releasedate is NULL;
++---------+---------------+----------+-------------+----------------+--------------+
+| MovieID | MovieName     | category | ReleaseDate | ProductionCost | BusinessCost |
++---------+---------------+----------+-------------+----------------+--------------+
+|       5 | Telugu_Movie  | Action   | NULL        |         100000 |         NULL |
+|       6 | Punjabi_Movie | Comedy   | NULL        |          30500 |         NULL |
++---------+---------------+----------+-------------+----------------+--------------+
+2 rows in set (0.02 sec)
+------------------------------------------------------------------------------------------
+
+Practical 13: Consider the table Movie of Practical 11 and display net profit of each
+              movie showing its ID, Name and Net Profit.
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> select MovieID, MovieName, (BusinessCost-ProductionCost)as NetProfit from movie;
++---------+---------------+-----------+
+| MovieID | MovieName     | NetProfit |
++---------+---------------+-----------+
+|       1 | Hindi_Movie   |      5500 |
+|       2 | Tamil_Movie   |      6000 |
+|       3 | ENglish_Movie |    115000 |
+|       4 | Bengali_Movie |     28000 |
+|       5 | Telugu_Movie  |      NULL |
+|       6 | Punjabi_Movie |      NULL |
++---------+---------------+-----------+
+6 rows in set (0.00 sec)
+------------------------------------------------------------------------------------------
+
+Practical 14: Consider the following table ‘Stock’ and display all items which name
+              begins with ‘s’ in descending order of rate
++----------+--------------+------------+----------+------+
+| ItemCode | ItemName     | Brand      | Quantity | Rate |
++----------+--------------+------------+----------+------+
+|      101 | Soap         | Lux        |      100 |   34 |
+|      102 | Salt         | Patanjali  |      110 |   20 |
+|      103 | Sugar        | Annapurna  |      200 |   56 |
+|      104 | Coffe        | Nestle     |       60 |  140 |
+|      105 | Maggi        | Nestle     |       90 |   83 |
+|      106 | Cake         | Britannis  |       40 |   10 |
+|      107 | Biscuit      | Britannis  |      130 |    5 |
+|      108 | Mustured Oil | Patanjali  |       75 |  180 |
+|      109 | Jam          | Kissan     |       20 |   54 |
+|      110 | Tea          | Brook Bond |       30 |  160 |
++----------+--------------+------------+----------+------+
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> create table stock(
+-> ItemCode int primary key,
+-> ItemName varchar(20),
+-> Brand varchar(50),
+-> Quantity int,
+-> Rate int);
+
+mysql> insert into stock values
+-> (101,'Soap','Lux',100,34),
+-> (102,'Salt','Patanjali',110,20),
+-> (103,'Sugar','Annapurna',200,56),
+-> (104,'Coffe','Nestle',60,140),
+-> (105,'Maggi','Nestle',90,83),
+-> (106,'Cake','Britannis',40,10),
+-> (107,'Biscuit','Britannis',130,5),
+-> (108,'Mustured Oil','Patanjali',75,180),
+-> (109,'Jam','Kissan',20,54),
+-> (110,'Tea','Brook Bond',30,160);
+Query OK, 10 rows affected (0.02 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> select * from stock where ItemName like 's%' order by rate desc;
++----------+----------+-----------+----------+------+
+| ItemCode | ItemName | Brand     | Quantity | Rate |
++----------+----------+-----------+----------+------+
+|      103 | Sugar    | Annapurna |      200 |   56 |
+|      101 | Soap     | Lux       |      100 |   34 |
+|      102 | Salt     | Patanjali |      110 |   20 |
++----------+----------+-----------+----------+------+
+3 rows in set (0.01 sec)
+------------------------------------------------------------------------------------------
+
+Practical 15: consider the table ‘stock’ of practical 14 and list item name and quantity
+              which rate lies between 50 to 100 rupees.
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> select ItemName, Quantity from stock where rate between 50 and 100;
++----------+----------+
+| ItemName | Quantity |
++----------+----------+
+| Sugar    |      200 |
+| Maggi    |       90 |
+| Jam      |       20 |
++----------+----------+
+3 rows in set (0.00 sec)
+------------------------------------------------------------------------------------------
+
+>>> SQL Exercise 02
+Practical 01: Study following table ‘Doctor’ and write SQL command to display female
+              doctor names with remainder of Consultation and experience of department
+              ENT or Medicine.
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> Create table Doctor(
+-> ID int primary key,
+-> Name varchar(30),
+-> Department varchar(10),
+-> Gender char,
+-> Experience int,
+-> Consultation int);
+Query OK, 0 rows affected (0.23 sec)
+
+mysql> insert into doctor values
+    -> (201,'Jaya Reddy','ENT','F',12,700),
+    -> (202,'Sanjay Paney','Medicine','M',5,700),
+    -> (203,'Rakesh Mittal','Orthopdic','F',10,600),
+    -> (204,'Shalini Lakra','Skin','F',4,400),
+    -> (205,'Ajay Singh','Cardiology','M',9,550),
+    -> (206,'Arun Bissa','Medicine','M',15,800),
+    -> (207,'Gurmeet Kheda','Orthopedic','M',11,700),
+    -> (208,'Malini Shankar','ENT','F',7,500),
+    -> (209,'Jubaida Hassan','Medicine','F',6,500),
+    -> (210,'Tia Jena','Neurology','F',2,300);
+Query OK, 10 rows affected (0.06 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> select Name, Consultation, Experience from doctor where Gender='F' and
+       Department in ('ENT','Medicine');
++----------------+--------------+------------+
+| Name           | Consultation | Experience |
++----------------+--------------+------------+
+| Jaya Reddy     |          700 |         12 |
+| Malini Shankar |          500 |          7 |
+| Jubaida Hassan |          500 |          6 |
++----------------+--------------+------------+
+3 rows in set (0.00 sec)
+------------------------------------------------------------------------------------------
+
+Practical 02: Consider table ‘Doctor’ of practical 1 and write SQL command to display the
+              average consultation charges of all doctors having more than 5 year
+              experience.
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> select avg(Consultation)as AverageConsultation from doctor where experience>5;
++---------------------+
+| AverageConsultation |
++---------------------+
+|            621.4286 |
++---------------------+
+1 row in set (0.00 sec)
+------------------------------------------------------------------------------------------
+
+Practical 03: Consider table ‘Doctor’ of practical 1 and display minimum consultation
+              charge of male doctors.
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> select min(Consultation)as AverageConsultation from doctor where gender='M';
++---------------------+
+| AverageConsultation |
++---------------------+
+|                 550 |
++---------------------+
+1 row in set (0.01 sec)
+------------------------------------------------------------------------------------------
+
+Practical 04: Write SQL command to fetch four characters of doctor name. (refer ‘Doctor’
+              table of Practical 1)
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> select substring(Name,1,4) from doctor;
++---------------------+
+| substring(Name,1,4) |
++---------------------+
+| Jaya                |
+| Sanj                |
+| Rake                |
+| Shal                |
+| Ajay                |
+| Arun                |
+| Gurm                |
+| Mali                |
+| Juba                |
+| Tia                 |
++---------------------+
+10 rows in set (0.00 sec)
+------------------------------------------------------------------------------------------
+    
+Practical 05: Display output of query: SELECT mid(‘techtipnow computer education’,11,9);
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> SELECT mid('techtipnow computer education',11,9);
++-------------------------------------------+
+| mid('techtipnow computer education',11,9) |
++-------------------------------------------+
+|  computer                                 |
++-------------------------------------------+
+1 row in set (0.00 sec)
+------------------------------------------------------------------------------------------
+
+Practical 06: What will be output if you add trim() method in given query of practical5 as
+              SELECT trim(mid(‘techtipnow computer education’,11,9));
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> SELECT trim(mid('techtipnow computer education',11,9));
++-------------------------------------------------+
+| trim(mid('techtipnow computer education',11,9)) |
++-------------------------------------------------+
+| computer                                        |
++-------------------------------------------------+
+1 row in set (0.00 sec)
+    ------------------------------------------------------------------------------------------
+    
+Practical 07: Study following table ‘CLUB’ and write SQL command to display all member
+              names and fees after giving 12.5% discount.
++----------+------------+-----+-------------+------------+-------+--------+
+| Club                                                                    |
++----------+------------+-----+-------------+------------+-------+--------+
+| Coach_ID | Coach_Name | Age | Sport       | DateOfApp  | Pay   | Gender |
++----------+------------+-----+-------------+------------+-------+--------+
+|        1 | Karan      |  35 | Karate      | 2019-03-27 | 10000 | M      |
+|        2 | Ravina     |  35 | Karate      | 2020-01-20 | 12000 | F      |
+|        3 | Kamal      |  34 | Squash      | 2020-02-19 | 20000 | M      |
+|        4 | Tarun      |  33 | Basket Ball | 2020-01-01 | 15000 | M      |
+|        5 | Sumera     |  36 | Swimming    | 2020-01-12 |  7500 | M      |
+|        6 | Anjani     |  37 | Swimming    | 2020-02-24 |  8000 | F      |
+|        7 | Shamima    |  37 | Squash      | 2020-02-20 | 22000 | F      |
+|        8 | Soumya     |  30 | Karate      | 2020-02-22 | 11000 | F      |
++----------+------------+-----+-------------+------------+-------+--------+
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> create table RotaryClub(
+-> MemberCode varchar(10) primary key,
+-> MemberName varchar(30),
+-> Age int,
+-> Fees int,
+-> Type varchar(20));
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> insert into RotaryClub values
+-> ('M1','Anshuman',35,7000,'Monthly'),
+-> ('M2','Aradhya',25,8000,'Monthly'),
+-> ('M3','Sushmita',42,24000,'Yearly'),
+-> ('M4','Poorvika',27,12000,'Quartly'),
+-> ('M5','Kritika',30,14000,'Yearly'),
+-> ('M6','Sandesh',32,15000,'Monthly');
+Query OK, 6 rows affected (0.02 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> select MemberName, Fees, (Fees-((Fees*12.5)/100))as "NetFees(after 12.5% Discount)"
+       from RotaryClub;
++------------+-------+-------------------------------+
+| MemberName | Fees  | NetFees(after 12.5% Discount) |
++------------+-------+-------------------------------+
+| Anshuman   |  7000 |                    6125.00000 |
+| Aradhya    |  8000 |                    7000.00000 |
+| Sushmita   | 24000 |                   21000.00000 |
+| Poorvika   | 12000 |                   10500.00000 |
+| Kritika    | 14000 |                   12250.00000 |
+| Sandesh    | 15000 |                   13125.00000 |
++------------+-------+-------------------------------+
+6 rows in set (0.00 sec)
+------------------------------------------------------------------------------------------
+    
+Practical 08: Modify query of Practical 7 to display fee after discount with rounding off
+              to zero decimal places. 
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> select MemberName, Fees, Round((Fees-((Fees*12.5)/100)))as Fees from RotaryClub;
++------------+-------+-------+
+| MemberName | Fees  | Fees  |
++------------+-------+-------+
+| Anshuman   |  7000 |  6125 |
+| Aradhya    |  8000 |  7000 |
+| Sushmita   | 24000 | 21000 |
+| Poorvika   | 12000 | 10500 |
+| Kritika    | 14000 | 12250 |
+| Sandesh    | 15000 | 13125 |
++------------+-------+-------+
+6 rows in set (0.00 sec)
+------------------------------------------------------------------------------------------
+    
+Practical 09: Display member names in capital letters whose age not in between 25 to 30yrs
+              (refer table ‘Club’ of practical 07)
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> select Upper(MemberName) from rOTARYcLUB where age not between 25 and 30;
++-------------------+
+| Upper(MemberName) |
++-------------------+
+| ANSHUMAN          |
+| SUSHMITA          |
+| SANDESH           |
++-------------------+
+3 rows in set (0.00 sec)
+------------------------------------------------------------------------------------------
+    
+Practical 10: Write SQL command to display eldest member name with his/her fee from table
+              ‘Club’ of Practical 7.
+----------------------------------- MySQL Command Line -----------------------------------
+------------------------------------------------------------------------------------------
+    
+Practical 11: Display result of SQL Command:
+              SELECT INSTR(SUBSTR('techtipnow computers',8,7), 'o');
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> SELECT INSTR(SUBSTR('techtipnow computers',8,7),'o');
++-----------------------------------------------+
+| INSTR(SUBSTR('techtipnow computers',8,7),'o') |
++-----------------------------------------------+
+|                                             2 |
++-----------------------------------------------+
+1 row in set (0.00 sec)
+------------------------------------------------------------------------------------------
+
+Practical 12: Consider the following table ‘Stock’ and display all brands with its
+              total quantities.
++----------+--------------+------------+----------+------+
+| Stock                                                  |
++----------+--------------+------------+----------+------+
+| ItemCode | ItemName     | Brand      | Quantity | Rate |
++----------+--------------+------------+----------+------+
+|      101 | Soap         | Lux        |      100 |   34 |
+|      102 | Salt         | Patanjali  |      110 |   20 |
+|      103 | Sugar        | Annapurna  |      200 |   56 |
+|      104 | Coffe        | Nestle     |       60 |  140 |
+|      105 | Maggi        | Nestle     |       90 |   83 |
+|      106 | Cake         | Britannis  |       40 |   10 |
+|      107 | Biscuit      | Britannis  |      130 |    5 |
+|      108 | Mustured Oil | Patanjali  |       75 |  180 |
+|      109 | Jam          | Kissan     |       20 |   54 |
+|      110 | Tea          | Brook Bond |       30 |  160 |
++----------+--------------+------------+----------+------+   
+----------------------------------- MySQL Command Line -----------------------------------
+------------------------------------------------------------------------------------------
+    
+Practical 13: Write SQL command to display item name with its price of those having
+              brandwise highest price. (Refer table ‘Stock’ of Practical 12)
+----------------------------------- MySQL Command Line -----------------------------------
+------------------------------------------------------------------------------------------
+   
+Practical 14: Predict Output of given query (Refer table ‘Stock’ of practical 12):
+              SELECT MAX(Rate) + MIN(Rate) from Stock where Brand = ‘Patanjali’;
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> SELECT MAX(Rate) + MIN(Rate) from Stock where Brand = 'Patanjali';
++-----------------------+
+| MAX(Rate) + MIN(Rate) |
++-----------------------+
+|                   200 |
++-----------------------+
+1 row in set (0.00 sec)
+------------------------------------------------------------------------------------------
+    
+Practical 15: predict Output of given query (Refer table ‘Stock’ of practical 12):
+SELECT avg(length(ItemName)) from Stock where ItemName like ‘S%’ or Quantity = 20 ;
+----------------------------------- MySQL Command Line -----------------------------------
+mysql> select avg(length(ItemName)) from Stock where ItemName like 'S%' or Quantity = 20;
++-----------------------+
+| avg(length(ItemName)) |
++-----------------------+
+|                4.0000 |
++-----------------------+
+1 row in set (0.00 sec)
+------------------------------------------------------------------------------------------
