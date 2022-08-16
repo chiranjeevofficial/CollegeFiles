@@ -1,0 +1,74 @@
+>> Linux Command ----------------------------------------------------------
+Command 01 - $ date
+Description - Displays the current Date.
+------------------------ Linux (Bash) Command Line ------------------------
+iamchiranjeev@Error-Machine:/mnt/c/WINDOWS/system32$ date
+Sat Aug 13 11:43:42 IST 2022
+---------------------------------------------------------------------------
+
+Command 02 - $ cal
+Description - Displays the currentr month calendar.
+------------------------ Linux (Bash) Command Line ------------------------
+iamchiranjeev@Error-Machine:/mnt/c/WINDOWS/system32$ cal
+    August 2022
+Su Mo Tu We Th Fr Sa
+    1  2  3  4  5  6
+ 7  8  9 10 11 12 13
+14 15 16 17 18 19 20
+21 22 23 24 25 26 27
+28 29 30 31
+---------------------------------------------------------------------------
+
+Command 03 - $ echo STRING
+Description - Display the string
+------------------------ Linux (Bash) Command Line ------------------------
+iamchiranjeev@Error-Machine:/mnt/c/Windows/System32$ echo NamasteLinux
+NamasteLinux
+---------------------------------------------------------------------------
+
+Command 04 - $ clear
+Description - Clear the screen
+------------------------ Linux (Bash) Command Line ------------------------
+iamchiranjeev@Error-Machine:/mnt/c/Windows/System32$
+---------------------------------------------------------------------------
+
+Command 05 - $ pwd
+Description - print working directory
+------------------------ Linux (Bash) Command Line ------------------------
+iamchiranjeev@Error-Machine:~$ pwd
+/home/iamchiranjeev
+---------------------------------------------------------------------------
+
+Command 06 - $ mkdir
+Description - Create a directory
+------------------------ Linux (Bash) Command Line ------------------------
+iamchiranjeev@Error-Machine:~$ mkdir linux
+---------------------------------------------------------------------------
+
+Command 07 - $ cd
+Description - Change Directory
+------------------------ Linux (Bash) Command Line ------------------------
+iamchiranjeev@Error-Machine:~$ cd linux
+iamchiranjeev@Error-Machine:~/linux$
+---------------------------------------------------------------------------
+
+Command 08 - $ touch FileName.extension
+Description - Make new file
+------------------------ Linux (Bash) Command Line ------------------------
+iamchiranjeev@Error-Machine:~/linux$ touch NewFile.txt
+---------------------------------------------------------------------------
+
+Command 09 - $ ls
+Description - List all file in current working directory
+------------------------ Linux (Bash) Command Line ------------------------
+iamchiranjeev@Error-Machine:~/linux$ ls
+NewFile.txt
+---------------------------------------------------------------------------
+
+Command 10 - $ rm
+Description - The rm command is used to delete files
+------------------------ Linux (Bash) Command Line ------------------------
+iamchiranjeev@Error-Machine:~/linux$ rm NewFile.txt
+iamchiranjeev@Error-Machine:~/linux$ ls
+iamchiranjeev@Error-Machine:~/linux$
+---------------------------------------------------------------------------
