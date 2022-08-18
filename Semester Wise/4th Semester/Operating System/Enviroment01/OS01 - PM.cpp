@@ -1,5 +1,3 @@
-#include<stdio.h>
-#include<conio.h>
 main()
 {
     int bt[20], wt[20], tat[20], i, n;

@@ -8,7 +8,7 @@ main()
     f[i]=0;
     printf("Enter how many blocks that are already allocated: ");
     scanf("%d",&p);
-    printf("\nEnter the blocks no.s that are already allocated: ");
+    printf("Enter the blocks no.s that are already allocated: ");
     for(i=0;i<p;i++)
     {
         scanf("%d",&a);
