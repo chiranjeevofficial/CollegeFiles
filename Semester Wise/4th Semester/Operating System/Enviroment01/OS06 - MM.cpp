@@ -2,8 +2,8 @@
 #include<conio.h>
 main()
 {
-    int ms,mp[10],i,
-    temp,n=0; char ch = 'y';
+    int ms, mp[10], i, temp, n=0;
+    char ch = 'y';
     printf("Enter the total memory available (in Bytes): ");
     scanf("%d",&ms);
     temp=ms;
@@ -18,7 +18,8 @@ main()
         }
         else
         {
-            printf("\nMemory is Full"); break;
+            printf("\nMemory is Full");
+            break;
         }
         printf("\nDo you want to continue(y/n): ");
         scanf(" %c", &ch);

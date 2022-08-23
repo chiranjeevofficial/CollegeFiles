@@ -1,30 +1,26 @@
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
-int f[50],i,k,j,inde[50],n,c,count=0,p;
-main()
-{
+int f[50], i, k, j, inde[50], n, c, count=0, p;
+int main(){
     for(i=0;i<50;i++)
-    f[i]=0;
+        f[i]=0;
     x:
     printf("Enter index block: ");
     scanf("%d",&p);
-    if(f[p]==0)
-    {
+    if(f[p]==0){
         f[p]=1;
-        printf("Enter no of files on index: ");
-        scanf("%d",&n);
+    printf("Enter no of files on index: ");
+    scanf("%d",&n);
     }
-    else
-    {
+    else{
         printf("Block already allocated\n");
         goto x;
     }
     for(i=0;i<n;i++)
         scanf("%d",&inde[i]);
     for(i=0;i<n;i++)
-        if(f[inde[i]]==1)
-        {
+        if(f[inde[i]]==1){
             printf("Block already allocated");
             goto x;
         }
@@ -40,6 +36,7 @@ main()
         goto x;
     else
         getch();
-        exit(0);
+    exit(0);
     getch();
+    return 0;
 }
