@@ -1,0 +1,1 @@
+[B.SC IT Syllabus](https://bit.ly/3KmhQsG)

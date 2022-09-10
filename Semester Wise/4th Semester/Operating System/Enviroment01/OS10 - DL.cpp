@@ -20,9 +20,10 @@ int main(){
     for(i=0;i<m;i++)
         scanf("%d",&total[i]);
     for(i=0;i<m;i++)
-        avail[i]=0; for(i=0;i<n;i++)
-    for(j=0;j<m;j++)
-        avail[j]+=alloc[i][j];
+        avail[i]=0;
+    for(i=0;i<n;i++)
+        for(j=0;j<m;j++)
+            avail[j]+=alloc[i][j];
     for(i=0;i<m;i++)
         work[i]=avail[i];
     for(j=0;j<m;j++)
