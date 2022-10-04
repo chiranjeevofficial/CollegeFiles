@@ -2,7 +2,7 @@
 
 ##  BS501 : Programming in JAVA
 
- **Index** | **Unit-01: Java Programming** | **Unit-02: Java Library** | **Unit-03: Software Development Using Java** | **Unit-04: Image Menu** 
+ **Chapters** | **Unit-01: Java Programming** | **Unit-02: Java Library** | **Unit-03: Software Development Using Java** | **Unit-04: Image Menu** 
  :--- | :--- | :--- | :--- | :--- |
  01 | Introduction |String handling | Java Bean | An image based menu
  02 | Operator |I/O exploring JAVA | Java Swing | Lavatron Applets
