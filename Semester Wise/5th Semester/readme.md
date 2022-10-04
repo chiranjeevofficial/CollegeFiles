@@ -1,9 +1,9 @@
-#  5^th^ Semester Syllabus
+#  5 ^th^ Semester Syllabus
 
 ##  BS501 : Programming in JAVA
 
  **Chapters** | **Unit-01: Java Programming** | **Unit-02: Java Library** | **Unit-03: Software Development Using Java** | **Unit-04: Image Menu** 
- :--- | :--- | :--- | :--- | :--- |
+ :---: | :--- | :--- | :--- | :--- |
  01 | Introduction |String handling | Java Bean | An image based menu
  02 | Operator |I/O exploring JAVA | Java Swing | Lavatron Applets
  03 | Data types |Networking | Java Servlets | Scrabblets JDBC
@@ -17,3 +17,5 @@
  11 | | Images
  12 | | List item
  13 | | Additional Packages.
+
+ ## 
