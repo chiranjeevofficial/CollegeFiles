@@ -1,17 +1,23 @@
 package fms;
 
+import BrahmasmiClasses.DatabaseConnectivity;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class HomePage implements ActionListener, KeyListener {
+    Connection con;
+    Student std;
     private final JTabbedPane mainTabbedPanel = new JTabbedPane();
     private final JFrame mainFrame = new JFrame("Home Page");
-    private JPanel studentPanel;
+    private JPanel studentPanel, showStudentPanel;
     private final JLabel[] studentInfoLabel = new JLabel[7];
     private final JTextField[] studentInfoTextField = new JTextField[5];
     JComboBox<String> courseComboBox;
@@ -22,30 +28,80 @@ public class HomePage implements ActionListener, KeyListener {
 
     // Non-Parameterized Constructor
     public HomePage() {
+        con = DatabaseConnectivity.getConnectionWithMySQL("library","root","admin@2023");
         initializeMainPanel();
         initializeMainFrame();
     }
 
     void initializeMainPanel() {
-        mainTabbedPanel.setSize(380,360);
+        mainTabbedPanel.setSize(mainFrame.getWidth(),mainFrame.getHeight());
         studentPanel = new JPanel(null);
-        JPanel teacherPanel = new JPanel(null), feesPanel = new JPanel(null);
+        showStudentPanel = new JPanel(null);
+        JPanel feesPanel = new JPanel(null);
         initializeNewStudentFormPanel();
+        initializeShowStudentPanel();
         mainTabbedPanel.add("Student", studentPanel);
-        mainTabbedPanel.add("Teacher",teacherPanel);
+        mainTabbedPanel.add("Show Student",showStudentPanel);
         mainTabbedPanel.add("Fees", feesPanel);
     }
+
+    
 
     // initialize Main-Frame
     void initializeMainFrame() {
         mainFrame.setLayout(null);
-        mainFrame.setSize(400,400);
+        mainFrame.setSize(700,400);
         mainFrame.setVisible(true);
         // open application to center on the screen
         mainFrame.setLocationRelativeTo(null);
         mainFrame.setResizable(true);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.add(mainTabbedPanel);
+    }
+
+    void initializeShowStudentPanel() {
+        ArrayList<Student> studentList = new ArrayList<Student>();
+
+        // Retrieve data from the database and add to the list
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM student");
+            while(rs.next()) {
+                Student student = new Student(rs.getInt("studentId"), rs.getString("studentName"), rs.getString("fatherName"), rs.getString("course"), rs.getInt("age"), rs.getString("gender"), rs.getString("phoneNumber"), rs.getString("address"));
+                studentList.add(student);
+            }
+            con.close();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
+// Display the data in a table
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Student ID");
+        model.addColumn("Student Name");
+        model.addColumn("Father Name");
+        model.addColumn("Course");
+        model.addColumn("Age");
+        model.addColumn("Gender");
+        model.addColumn("Phone Number");
+        model.addColumn("Address");
+
+        for(Student student : studentList) {
+            Object[] row = new Object[8];
+            row[0] = student.getStudentId();
+            row[1] = student.getStudentName();
+            row[2] = student.getFatherName();
+            row[3] = student.getCourse();
+            row[4] = student.getAge();
+            row[5] = student.getGender();
+            row[6] = student.getPhoneNumber();
+            row[7] = student.getAddress();
+            model.addRow(row);
+        }
+
+        JTable table = new JTable(model);
+        table.setBounds(0,0,mainTabbedPanel.getWidth(),mainTabbedPanel.getHeight());
+        showStudentPanel.add(table);
     }
 
     void initializeNewStudentFormPanel() {
@@ -91,7 +147,7 @@ public class HomePage implements ActionListener, KeyListener {
     }
 
     public void initializeStudentObject() {
-        Student std = new Student();
+        std = new Student();
         std.setStudentId(0);
         std.setStudentName(studentInfoTextField[0].getText());
         std.setFatherName(studentInfoTextField[1].getText());
@@ -135,7 +191,28 @@ public class HomePage implements ActionListener, KeyListener {
     }
 
     public boolean generateStudentObjectQuery() {
-        return false;
+        boolean validate = true;
+        try {
+            String query = "INSERT INTO student (studentName, fatherName, course, age, gender, phoneNumber, address) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement preStmt = con.prepareStatement(query);
+
+            // Set the values for the placeholders in the statement
+            preStmt.setString(1, std.getStudentName());
+            preStmt.setString(2, std.getFatherName());
+            preStmt.setString(3, std.getCourse());
+            preStmt.setInt(4, std.getAge());
+            preStmt.setString(5, std.getGender());
+            preStmt.setString(6, std.getPhoneNumber());
+            preStmt.setString(7, std.getAddress());
+
+            // Execute the statement to insert the data
+            System.out.println(preStmt.executeUpdate() + " row(s) inserted.");
+        } catch (SQLException e) {
+            validate = false;
+            System.out.println(e.getMessage());
+        }
+        return validate;
     }
     
     @Override
@@ -143,7 +220,10 @@ public class HomePage implements ActionListener, KeyListener {
         if (submitButton == e.getSource()) {
             if (studentFormValidation()) {
                 initializeStudentObject();
-                clearStudentForm();
+                if (generateStudentObjectQuery())
+                    clearStudentForm();
+                else
+                    System.out.println("false");
             }
             else
                 JOptionPane.showMessageDialog(null, "Please Completely fill the form", "Alert", JOptionPane.WARNING_MESSAGE);

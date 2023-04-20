@@ -1,7 +1,7 @@
  package fms;
 public class Main {
     public static void main(String[] args) {
-        new HomePage();
+        new LoginPage();
     }
 
     static void passwordCombination() {

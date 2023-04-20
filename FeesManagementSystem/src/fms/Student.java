@@ -1,9 +1,19 @@
 package fms;
 
 public class Student {
-    private String studentName, fatherName, course, phoneNumber, address;
+    private String studentName, fatherName, course, phoneNumber, address, gender;
     private int studentId, age;
-    private char gender;
+
+    public Student(int studentId, String studentName, String fatherName, String course, int age, String gender, String phoneNumber, String address) {
+        this.studentName = studentName;
+        this.fatherName = fatherName;
+        this.course = course;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.gender = gender;
+        this.studentId = Integer.parseInt(String.valueOf(studentId));
+        this.age = Integer.parseInt(String.valueOf(age));
+    }
 
     public void setStudentName(String studentName) {
         this.studentName = studentName;
@@ -34,7 +44,7 @@ public class Student {
     }
 
     public void setGender(char gender) {
-        this.gender = gender;
+        this.gender = String.valueOf(gender);
     }
 
     public Student() {}
@@ -67,7 +77,7 @@ public class Student {
         return age;
     }
 
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
     @Override
