@@ -72,13 +72,13 @@ public class Student {
     }
     @Override
     public String toString() {
-        return  getStudentId()+"\n"+
-                getStudentName()+"\n"+
-                getFatherName()+"\n"+
-                getCourse()+"\n"+
-                getAge()+"\n"+
-                getGender()+"\n"+
-                getPhoneNumber()+"\n"+
+        return  getStudentId()+" "+
+                getStudentName()+" "+
+                getFatherName()+" "+
+                getCourse()+" "+
+                getAge()+" "+
+                getGender()+" "+
+                getPhoneNumber()+" "+
                 getAddress();
     }
 }

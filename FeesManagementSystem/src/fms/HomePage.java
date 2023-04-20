@@ -13,7 +13,8 @@ public class HomePage implements ActionListener, KeyListener {
     private final JFrame mainFrame = new JFrame("Home Page");
     private JPanel studentPanel;
     private final JLabel[] studentInfoLabel = new JLabel[7];
-    private final JTextField[] studentInfoTextField = new JTextField[6];
+    private final JTextField[] studentInfoTextField = new JTextField[5];
+    JComboBox<String> courseComboBox;
     ButtonGroup genderButtonGroup;
     private JRadioButton male, female;
     private final JButton submitButton = new JButton("Submit");
@@ -48,6 +49,10 @@ public class HomePage implements ActionListener, KeyListener {
     }
 
     void initializeNewStudentFormPanel() {
+        String[] course = {"Select the course","B.Sc IT","B.A","B.Com","B.Sc FT","B.A. Yoga","B.Sc Home Science"};
+        courseComboBox = new JComboBox<>(course);
+        courseComboBox.setSelectedIndex(0);
+        courseComboBox.setBounds(120,71,200,27);
         genderButtonGroup = new ButtonGroup();
         male = new JRadioButton("Male");
         female = new JRadioButton("Female");
@@ -64,8 +69,9 @@ public class HomePage implements ActionListener, KeyListener {
             studentInfoLabel[i] = new JLabel(labelNames[i]);
             studentInfoLabel[i].setBounds(10, y, 100, 30);
             studentPanel.add(studentInfoLabel[i]);
-            if (i<6) { // overtake the ArrayIndexOutOfBoundsException
-                textFieldY+=i==4?30:0;
+            if (i<5) { // overtake the ArrayIndexOutOfBoundsException
+                textFieldY+=i==2?30:0;
+                textFieldY+=i==3?30:0;
                 studentInfoTextField[i] = new JTextField(20);
                 studentInfoTextField[i].setBounds(120, textFieldY, 200, 30);
                 studentPanel.add(studentInfoTextField[i]);
@@ -73,9 +79,11 @@ public class HomePage implements ActionListener, KeyListener {
             }
             y += studentInfoLabel[i].getHeight();
         }
+        studentInfoTextField[2].addKeyListener(this);
         studentInfoTextField[3].addKeyListener(this);
-        submitButton.setBounds(studentInfoTextField[5].getX(),studentInfoTextField[5].getY()+35,90,30);
+        submitButton.setBounds(studentInfoTextField[4].getX(),studentInfoTextField[4].getY()+35,90,30);
         clearButton.setBounds(submitButton.getX()+110, submitButton.getY(),90,30);
+        studentPanel.add(courseComboBox);
         studentPanel.add(submitButton);
         studentPanel.add(clearButton);
         submitButton.addActionListener(this);
@@ -87,22 +95,20 @@ public class HomePage implements ActionListener, KeyListener {
         std.setStudentId(0);
         std.setStudentName(studentInfoTextField[0].getText());
         std.setFatherName(studentInfoTextField[1].getText());
-        std.setCourse(studentInfoTextField[2].getText());
-        try {
-            std.setAge(Integer.parseInt(studentInfoTextField[3].getText()));
-        } catch (NumberFormatException e) {
-            return; // Stop processing the student object creation
-        }
+        std.setCourse(courseComboBox.getItemAt(courseComboBox.getSelectedIndex()));
+        std.setAge(Integer.parseInt(studentInfoTextField[2].getText()));
         std.setGender(getGenderSelected());
-        std.setPhoneNumber(studentInfoTextField[4].getText());
-        std.setAddress(studentInfoTextField[5].getText());
+        std.setPhoneNumber(studentInfoTextField[3].getText());
+        std.setAddress(studentInfoTextField[4].getText());
         System.out.println(std);
     }
 
     public void clearStudentForm() {
-        for (int i = 0 ; i < 6 ; i++)
+        for (int i = 0 ; i < 5; i++)
             studentInfoTextField[i].setText("");
         genderButtonGroup.clearSelection();
+        if (courseComboBox.getSelectedIndex() != 0)
+            courseComboBox.setSelectedIndex(0);
     }
 
     public char getGenderSelected() {
@@ -111,28 +117,36 @@ public class HomePage implements ActionListener, KeyListener {
 
     public boolean studentFormValidation() {
         boolean validate = true;
-        for (int i = 0; i < 6; i++) {
-            if (studentInfoTextField[i].getText().equals("") || studentInfoTextField[i].getText().length() < 3) {
+        for (int i = 0; i < studentInfoTextField.length; i++) {
+            if (i != 2 && (studentInfoTextField[i].getText().equals("") || studentInfoTextField[i].getText().length() < 3)) {
+                validate = false;
+                break;
+            }
+            if (i == 2 && (studentInfoTextField[i].getText().equals("") || studentInfoTextField[i].getText().length() < 1)) {
                 validate = false;
                 break;
             }
         }
         validate = validate && (male.isSelected() || female.isSelected());
+        if (courseComboBox.getSelectedIndex() == 0)
+            validate = false;
         System.out.println(validate ? "true" : "false");
         return validate;
+    }
+
+    public boolean generateStudentObjectQuery() {
+        return false;
     }
     
     @Override
     public void actionPerformed(@NotNull ActionEvent e) {
         if (submitButton == e.getSource()) {
-            /*if (studentFormValidation()) {
+            if (studentFormValidation()) {
+                initializeStudentObject();
                 clearStudentForm();
-                System.out.println("Form Submitted");
             }
             else
-                JOptionPane.showMessageDialog(null, "Please Completely fill the form", "Alert", JOptionPane.WARNING_MESSAGE);**/
-            if(studentFormValidation())
-               clearStudentForm();
+                JOptionPane.showMessageDialog(null, "Please Completely fill the form", "Alert", JOptionPane.WARNING_MESSAGE);
         }
         if (clearButton == e.getSource())
             clearStudentForm();
@@ -140,11 +154,18 @@ public class HomePage implements ActionListener, KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-        if(e.getSource() == studentInfoTextField[3]) {
+        if(e.getSource() == studentInfoTextField[2]) {
             char ch = e.getKeyChar();
             if (!(Character.isDigit(ch) || ch == KeyEvent.VK_BACK_SPACE || ch == KeyEvent.VK_DELETE))
                 e.consume();
-            if (studentInfoTextField[3].getText().length() >= 3)
+            if (studentInfoTextField[2].getText().length() >= 3)
+                e.consume();
+        }
+        if (e.getSource() == studentInfoTextField[3]) {
+            char ch = e.getKeyChar();
+            if (!(Character.isDigit(ch) || ch == KeyEvent.VK_BACK_SPACE || ch == KeyEvent.VK_DELETE))
+                e.consume();
+            if (studentInfoTextField[3].getText().length() >= 10)
                 e.consume();
         }
     }
